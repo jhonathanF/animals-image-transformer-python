@@ -12,16 +12,22 @@ def toBase64(img):
 def printHr():
     print('---------------------------------------------------')
 
-def main():
+def printEmptyLine():
+    print('|                                                 |')
+
+def printMainMenu():
     printHr()
     print('|  Olá, digite para continuar:                    |')
-    print('|                                                 |')
+    printEmptyLine()
     print('|  1 - Base64                                     |')
     print('|  2 - Save To File                               |')
     printHr()
+
+def main():
+    printMainMenu()
     option = input()
     print('Gerando...')
-    imgUrl = requests.get('https://shibe.online/api/shibes').json()[0]
+    imgUrl = requests.get('https://shibe.online/api/cats').json()[0]
     imgContent = requests.get(imgUrl).content
     img = Image.open(BytesIO(imgContent))
     
